@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinojany Gajendran - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        :root {
+            --primary-color: #2563EB; /* Royal Blue (Accent) */
+            --secondary-color: #1E293B; /* Slate Dark (Text) */
+            --bg-color: #F8FAFC; /* Very Light Gray/Blue (Secondary) */
+            --text-color: #1E293B; /* Slate Dark (Text) */
+            --light-text: #FFFFFF; /* Pure White (Primary) */
+            --dark-bg: #1E293B; /* Slate Dark for Nav/Footer */
+            --card-bg: #FFFFFF; /* Pure White (Primary) */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 60px 0;
+        }
+
+        header h1 {
+            color: var(--light-text);
+            /* Override main.css gradient text */
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        nav {
+            background-color: var(--dark-bg);
+        }
+
+        nav a {
+            color: var(--light-text);
+        }
+
+        nav a:hover {
+            color: #93C5FD; /* Light Blue for hover on dark bg */
+        }
+
+        section {
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2, h3 {
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Testimonial Styles */
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        /* Icon List Styles */
+        #education ul, #focus-areas ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        #education ul li i, #focus-areas ul li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            width: 25px;
+        }
+
+        /* Overrides for main.css dark theme elements */
+        .project-card, .skill-category {
+            background-color: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            color: var(--text-color);
+        }
+        
+        .project-info h3, .skill-category h3 {
+            color: var(--primary-color);
+        }
+
+        .project-link {
+            color: var(--primary-color);
+        }
+
+        .skill-category ul li {
+            background-color: #eff6ff; /* Light blue tint */
+            color: var(--primary-color);
+            border: 1px solid #bfdbfe;
+        }
+
+        .skill-category ul li:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        /* Fix nav underline color from main.css */
+        nav ul li a::after {
+            background-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="scroll-arrow">
+        <i class="fas fa-arrow-down"></i>
+    </div>
+ 
+
+    <header>
+        <h1>VINOJANI GAJENDRAN</h1>
+        <p class="tagline">Aspiring Biomedical Technologist</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#projects"><i class="fas fa-briefcase"></i> Projects</a></li>
+            <li><a href="#focus-areas"><i class="fas fa-stethoscope"></i> Key Focus Areas</a></li>
+            <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about" class="fade-in">
+            <div class="about-container">
+                <!-- TODO: Move your image file to the project folder and update the src below -->
+                <img src="C:\Users\DELL\Downloads\pic.jpeg" alt="A picture of Vinojani Gajendran" class="profile-img slide-in-left">
+                <div class="about-text slide-in-right">
+                    <h2>About Me</h2>
+                    <p>I am a dedicated <strong>Biomedical Technology student</strong> with a passion for bridging the gap between healthcare and engineering. My goal is to improve patient outcomes through reliable technology and innovation. When I'm not calibrating equipment or coding, you can find me <strong>hiking in the hills of Hatton</strong> or exploring the latest advancements in medical AI.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="fade-in">
+            <h2>Education</h2>
+            <p>Currently, I am in my second year, first semester, pursuing a <strong>Bachelor of Health Science (Hons) in Biomedical Technology</strong> at the Gampaha Wickramarachchi University of Indigenous Medicine.</p>
+            <ul>
+                <li><i class="fas fa-university"></i> <strong>Faculty:</strong> Indigenous Health Science and Technology</li>
+                <li><i class="fas fa-building"></i> <strong>Department:</strong> Technology</li>
+                <li><i class="fas fa-certificate"></i> <strong>Program Type:</strong> BHSc (Honours)</li>
+                <li><i class="fas fa-microscope"></i> <strong>Specialization:</strong> Biomedical Technology</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="fade-in">
+            <h2>Featured Projects</h2>
+            <div class="projects-container">
+                <!-- Project 1: Case Study Format -->
+                <div class="project-card">
+                    <!-- Placeholder image for project -->
+                    <img src="https://via.placeholder.com/400x200?text=Inventory+System" alt="Hospital Inventory System">
+                    <div class="project-info">
+                        <h3>Hospital Inventory Management</h3>
+                        <p><strong>The Challenge:</strong> The local clinic struggled with manual tracking of surgical instruments, leading to a 15% loss rate.</p>
+                        <p><strong>The Solution:</strong> I developed a web-based inventory system using HTML, CSS, and PHP to track equipment usage in real-time.</p>
+                        <p><strong>The Results:</strong> Reduced equipment loss by <strong>10%</strong> within the first month of testing.</p>
+                        <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Case Study Format -->
+                <div class="project-card">
+                    <!-- Placeholder image for project -->
+                    <img src="https://via.placeholder.com/400x200?text=Calibration+Tool" alt="Calibration Tool">
+                    <div class="project-info">
+                        <h3>Automated Calibration Log</h3>
+                        <p><strong>The Challenge:</strong> Manual calibration logs for ICU ventilators were prone to human error and difficult to audit.</p>
+                        <p><strong>The Solution:</strong> Designed a digital logging interface that validates input data against standard safety thresholds.</p>
+                        <p><strong>The Results:</strong> Improved audit compliance speed by <strong>30%</strong> and eliminated calculation errors.</p>
+                        <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="focus-areas" class="fade-in">
+            <h2>Key Focus Areas</h2>
+            <ul>
+                <li><i class="fas fa-heart-pulse"></i> Patient Monitoring Systems</li>
+                <li><i class="fas fa-lungs"></i> ICU Equipment & Ventilators</li>
+                <li><i class="fas fa-x-ray"></i> Diagnostic Imaging (X-ray, CT, MRI, Ultrasound)</li>
+                <li><i class="fas fa-robot"></i> Surgical Instruments & Robotics</li>
+                <li><i class="fas fa-laptop-medical"></i> Healthcare IT & Telemedicine</li>
+                <li><i class="fas fa-pump-medical"></i> Infection Control & Sterilization Technology</li>
+                <li><i class="fas fa-hospital"></i> Hospital Infrastructure Systems (HVAC, Power backup)</li>
+                <li><i class="fas fa-screwdriver-wrench"></i> Medical Equipment Calibration & Maintenance</li>
+                <li><i class="fas fa-mobile-screen-button"></i> Wearable Health Tech & IoT Devices</li>
+                <li><i class="fas fa-vial"></i> Clinical Laboratory Automation</li>
+                <li><i class="fas fa-brain"></i> Medical AI & Data Analytics</li>
+                <li><i class="fas fa-truck-medical"></i> Emergency & Trauma Care Devices</li>
+                <li><i class="fas fa-wave-square"></i> Biomedical Signal Processing</li>
+                <li><i class="fas fa-person-walking"></i> Rehabilitation & Physiotherapy Equipment</li>
+            </ul>
+        </section>
+
+        <section id="skills" class="fade-in">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-microchip"></i> <strong>Biomedical Devices:</strong> Advanced</li>
+                        <li><i class="fa-solid fa-code"></i> <strong>HTML and CSS:</strong> Advanced</li>
+                        <li><i class="fa-brands fa-php"></i> <strong>PHP:</strong> Basic</li>
+                        <li><i class="fa-solid fa-calculator"></i> <strong>Digital Electronics:</strong> Basic</li>
+                        <li><i class="fa-solid fa-robot"></i> <strong>AI Tools:</strong> ChatGPT, Midjourney</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <p>My soft skills include communication, teamwork, time management, adaptability, and a positive attitude. I am also proficient in problem-solving, emotional intelligence, leadership, creativity, active listening, and critical thinking. These abilities help me build strong relationships, handle challenges effectively, and maintain professionalism.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="fade-in">
+            <h2>Social Proof</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p>"Vinojani has an exceptional ability to troubleshoot complex biomedical equipment while maintaining a calm demeanor under pressure."</p>
+                    <p><strong>- Dr. S. Perera, Clinical Supervisor</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A proactive student who brings both technical coding skills and practical engineering knowledge to every group project."</p>
+                    <p><strong>- Senior Lecturer, Dept. of Technology</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h2>Contact Me</h2>
+            <p>I'm open to new opportunities and collaborations. Feel free to reach out!</p>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:vinojani.gajendran@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2025 Vinojani Gajendran</p>
+    </footer>
+
+    <script>
+        const observers = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach((el) => observers.observe(el));
+
+        const slideLeftElements = document.querySelectorAll('.slide-in-left');
+        slideLeftElements.forEach((el) => observers.observe(el));
+
+        const slideRightElements = document.querySelectorAll('.slide-in-right');
+        slideRightElements.forEach((el) => observers.observe(el));
+        // AOS.init(); // Removed because the AOS library is not included
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+        });
+
+        // document.querySelectorAll('a').forEach(link => {
+        //     link.addEventListener('mouseover', () => {
+        //         document.querySelector('.custom-cursor').classList.add('cursor-grow');
+        //     });
+        //     link.addEventListener('mouseleave', () => {
+        //         document.querySelector('.custom-cursor').classList.remove('cursor-grow');
+        //     });
+        // });
+
+    </script>
+</body>
+</html>

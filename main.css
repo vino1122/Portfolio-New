@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@keyframes text-gradient-animation {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 15px rgba(209, 66, 138, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(209, 66, 138, 0.8); }
+    100% { box-shadow: 0 0 15px rgba(209, 66, 138, 0.4); }
+}
+
+@keyframes reveal-text {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes reveal-heading {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes draw-underline {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #47b883; /* Soft Off-White */
+    color: #f0eceaea; /* Dark Gray for text */
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* Animated Starry Background - I'm adding this directly to the body for simplicity */
+body::before, body::after {
+    content: '';
+    position: fixed; /* Use fixed to cover the viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Header Styling */
+header {
+    background-color: transparent;
+    color: #151413; /* White */
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: none;
+}
+ 
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    /*Animated Gradient Text */
+    background: linear-gradient(to right, #D1428A, #C71585, #E75480); /* Pink gradient */
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Typing Animation */
+    position: relative;
+    display: inline-block; /* Important for the reveal effect */
+    opacity: 0; /* Initially hidden */
+    animation:
+        reveal-text 1s ease 0.5s forwards,
+        text-gradient-animation 4s linear infinite;
+}
+
+header h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: #1b1b1b; /* Soft Off-White reveal block */
+    animation: reveal-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.tagline {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #555; /* Dark Gray */
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.2s forwards; /* Fade in after the name reveal */
+}
+
+/* Navigation Bar Styling */
+nav { 
+    background-color: #0e0d0d; /* White */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    color: #D1428A; /* Royal Pink */
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #D1428A; /* Royal Pink underline */
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover, .active {
+    color: #C71585; /* Darker Pink on hover */
+}
+
+nav ul li a:hover::after {
+    width: 70%;
+}
+
+/* Animation Keyframes */
+@keyframes reveal-block {
+    from { transform: scaleX(1); transform-origin: left; }
+    to { transform: scaleX(0); transform-origin: right; }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Main Content and Sections */
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+section {
+    background: transparent;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: none;
+    box-shadow: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+section h2 {
+    color: #D1428A; /* Royal Pink */
+    border-bottom: 2px solid #0e0e0e; /* Light Gray */
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    font-weight: 600;
+    position: relative;
+    /* Prepare for reveal animation */
+    clip-path: inset(0 100% 0 0);
+}
+
+section.visible h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Position it over the border */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #D1428A; /* Royal Pink */
+    animation: draw-underline 0.5s ease 0.8s forwards; /* Delay to start after heading reveal */
+}
+
+section.visible h2 {
+    animation: reveal-heading 0.8s cubic-bezier(0.77, 0, 0.175, 1) 0.2s forwards;
+}
+
+/* About Me Section Layout */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: fill;
+    border: 4px solid #D1428A; /* Royal Pink border */
+    animation: pulse-border 2s infinite;
+}
+
+/* Skills Section Layout */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skill-category h3 {
+    color: #D1428A; /* Royal Pink */
+    margin-bottom: 1rem;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 280px;
+    background: #121212; /* Pure White */
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #0f0f0f; /* Light Gray */
+}
+
+.skill-category ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+/* Lists Styling */
+ul:not(.skill-category ul) {
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+/* Staggered list animation */
+#focus-areas.visible ul li {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Add delays to each list item */
+#focus-areas.visible ul li:nth-child(1) { animation-delay: 0.2s; }
+#focus-areas.visible ul li:nth-child(2) { animation-delay: 0.3s; }
+#focus-areas.visible ul li:nth-child(3) { animation-delay: 0.4s; }
+/* ...and so on for all list items */
+
+ul li:not(.skill-category li) {
+    margin-bottom: 0.5rem;
+    color: #555; /* Dark Gray */
+}
+
+.skill-category ul li {
+    background-color: #D1428A; /* Royal Pink */
+    color: #1a1919; /* White */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+ 
+.skill-category ul li:hover {
+    background-color: #C71585; /* Darker Pink */
+    box-shadow: 0 0 10px rgba(209, 66, 138, 0.4);
+    transform: translateY(-2px);
+}
+
+.skill-category ul li i {
+    margin-right: 8px;
+    color: #111111; /* Light gray for icons */
+}
+
+/* Projects Section */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: #191818;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #121111;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(209, 66, 138, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-top: 0;
+    color: #D1428A;
+}
+
+.project-link {
+    color: #D1428A;
+    text-decoration: none;
+    font-weight: 600;
+}
+ 
+/* Contact Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #E0D8D0; /* Gray border */
+    background-color: #ffffff;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+ 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #6C757D; /* Gray */
+}
+
+.submit-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #D1428A; /* Royal Pink */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #C71585; /* Darker Pink */
+    transform: translateY(-2px);
+}
+
+/* Bounce animation for social icons */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #FFFFFF; /* White */
+    color: #555;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #D1428A; /* Royal Pink */
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: #C71585; /* Darker Pink on hover */
+    animation: bounce 0.5s ease;
+}
