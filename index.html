@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="main.css">
     <style>
         :root {
-            --primary-color: #2563EB; /* Royal Blue (Accent) */
-            --secondary-color: #1E293B; /* Slate Dark (Text) */
-            --bg-color: #F8FAFC; /* Very Light Gray/Blue (Secondary) */
-            --text-color: #1E293B; /* Slate Dark (Text) */
-            --light-text: #FFFFFF; /* Pure White (Primary) */
-            --dark-bg: #1E293B; /* Slate Dark for Nav/Footer */
-            --card-bg: #FFFFFF; /* Pure White (Primary) */
+            --primary-color: #800000; /* Maroon */
+            --secondary-color: #4A0404; /* Dark Maroon */
+            --bg-color: #F5F5DC; /* Beige */
+            --text-color: #333333; /* Dark Gray */
+            --light-text: #FFFFFF; /* White */
+            --dark-bg: #800000; /* Maroon */
+            --card-bg: #FFFFFF; /* White */
         }
 
         body {
@@ -47,7 +47,7 @@
         }
 
         nav a:hover {
-            color: #93C5FD; /* Light Blue for hover on dark bg */
+            color: #F5F5DC; /* Beige for hover */
         }
 
         section {
@@ -118,14 +118,14 @@
         }
 
         .skill-category ul li {
-            background-color: #eff6ff; /* Light blue tint */
-            color: var(--primary-color);
-            border: 1px solid #bfdbfe;
+            background-color: var(--primary-color); /* Maroon */
+            color: var(--light-text); /* White */
+            border: 1px solid var(--primary-color);
         }
 
         .skill-category ul li:hover {
-            background-color: var(--primary-color);
-            color: var(--light-text);
+            background-color: var(--secondary-color);
+            color: #F5F5DC;
         }
 
         /* Fix nav underline color from main.css */
@@ -139,10 +139,19 @@
     <div class="scroll-arrow">
         <i class="fas fa-arrow-down"></i>
     </div>
+    <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
  
 
     <header>
-        <h1>VINOJANI GAJENDRAN</h1>
+        <h1><i class="fas fa-heart-pulse"></i> VINOJANI GAJENDRAN</h1>
         <p class="tagline">Aspiring Biomedical Technologist</p>
     </header>
 
@@ -185,27 +194,31 @@
             <div class="projects-container">
                 <!-- Project 1: Case Study Format -->
                 <div class="project-card">
-                    <!-- Placeholder image for project -->
-                    <img src="https://via.placeholder.com/400x200?text=Inventory+System" alt="Hospital Inventory System">
+                        <!-- Project visual (icon) -->
+                        <div class="project-visual inventory" role="img" aria-label="Hospital Inventory System">
+                            <i class="fas fa-warehouse fa-4x" aria-hidden="true"></i>
+                        </div>
                     <div class="project-info">
                         <h3>Hospital Inventory Management</h3>
                         <p><strong>The Challenge:</strong> The local clinic struggled with manual tracking of surgical instruments, leading to a 15% loss rate.</p>
                         <p><strong>The Solution:</strong> I developed a web-based inventory system using HTML, CSS, and PHP to track equipment usage in real-time.</p>
                         <p><strong>The Results:</strong> Reduced equipment loss by <strong>10%</strong> within the first month of testing.</p>
-                        <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                        <!-- View Case Study link removed -->
                     </div>
                 </div>
 
                 <!-- Project 2: Case Study Format -->
                 <div class="project-card">
-                    <!-- Placeholder image for project -->
-                    <img src="https://via.placeholder.com/400x200?text=Calibration+Tool" alt="Calibration Tool">
+                    <!-- Project visual (icon) -->
+                    <div class="project-visual calibration" role="img" aria-label="Calibration Tool">
+                        <i class="fas fa-wrench fa-4x" aria-hidden="true"></i>
+                    </div>
                     <div class="project-info">
                         <h3>Automated Calibration Log</h3>
                         <p><strong>The Challenge:</strong> Manual calibration logs for ICU ventilators were prone to human error and difficult to audit.</p>
                         <p><strong>The Solution:</strong> Designed a digital logging interface that validates input data against standard safety thresholds.</p>
                         <p><strong>The Results:</strong> Improved audit compliance speed by <strong>30%</strong> and eliminated calculation errors.</p>
-                        <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                        <!-- View Case Study link removed -->
                     </div>
                 </div>
             </div>
