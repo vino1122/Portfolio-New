@@ -18,28 +18,35 @@
             --light-text: #FFFFFF; /* White */
             --dark-bg: #800000; /* Maroon */
             --card-bg: #FFFFFF; /* White */
+            --nav-bg: rgba(128, 0, 0, 0.95);
+            --gradient-1: #F5F5DC;
+            --gradient-2: #FFF8DC;
+            --gradient-3: #FAEBD7;
+            --shadow-color: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #ff8080; /* Lighter Maroon/Red for contrast */
+            --secondary-color: #ffcccc;
+            --bg-color: #121212; /* Dark Background */
+            --text-color: #e0e0e0; /* Light Gray Text */
+            --light-text: #ffffff;
+            --dark-bg: #2d0a0a; /* Deep Maroon */
+            --card-bg: #1e1e1e; /* Dark Card */
+            --nav-bg: rgba(45, 10, 10, 0.95);
+            --gradient-1: #0f0f0f;
+            --gradient-2: #251018;
+            --gradient-3: #1a0505;
+            --shadow-color: rgba(0,0,0,0.5);
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: transparent;
             color: var(--text-color);
         }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-text);
-            padding: 60px 0;
-        }
-
-        header h1 {
-            color: var(--light-text);
-            /* Override main.css gradient text */
-            background: none;
-            -webkit-text-fill-color: initial;
-        }
-
         nav {
-            background-color: var(--dark-bg);
+            background-color: var(--nav-bg);
         }
 
         nav a {
@@ -52,7 +59,7 @@
 
         section {
             background-color: var(--card-bg);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px var(--shadow-color);
             border-radius: 8px;
             padding: 30px;
             margin-bottom: 30px;
@@ -105,7 +112,7 @@
         /* Overrides for main.css dark theme elements */
         .project-card, .skill-category {
             background-color: var(--card-bg);
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--primary-color);
             color: var(--text-color);
         }
         
@@ -136,9 +143,13 @@
 </head>
 <body>
     <div class="custom-cursor"></div>
+    <div class="scroll-progress-bar"></div>
     <div class="scroll-arrow">
         <i class="fas fa-arrow-down"></i>
     </div>
+    <button id="back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <div class="bubbles">
         <span></span>
         <span></span>
@@ -163,6 +174,9 @@
             <li><a href="#focus-areas"><i class="fas fa-stethoscope"></i> Key Focus Areas</a></li>
             <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+            </li>
         </ul>
     </nav>
 
@@ -328,6 +342,56 @@
         document.addEventListener('mousemove', function(e) {
             const cursor = document.querySelector('.custom-cursor');
             cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+        });
+
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress-bar').style.width = scrolled + "%";
+        });
+
+        // Back to Top Button Logic
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.addEventListener('scroll', () => {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.classList.add("show");
+            } else {
+                backToTopButton.classList.remove("show");
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const toggleIcon = toggleBtn.querySelector('i');
+        const htmlElement = document.documentElement;
+
+        // Check for saved user preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') toggleIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Toggle Icon
+            if (newTheme === 'dark') {
+                toggleIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                toggleIcon.classList.replace('fa-sun', 'fa-moon');
+            }
         });
 
         // document.querySelectorAll('a').forEach(link => {
