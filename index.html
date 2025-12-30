@@ -41,7 +41,8 @@
         }
 
         body {
-            background-color: transparent;
+            background-color: var(--bg-color);
+            background-image: linear-gradient(to bottom right, var(--gradient-1), var(--gradient-2));
             color: var(--text-color);
         }
 
@@ -139,10 +140,100 @@
         nav ul li a::after {
             background-color: var(--primary-color);
         }
+
+        /* Soft Skills Tag Style */
+        .soft-skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .soft-skills-list li {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--text-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* CV Button Style */
+        .cv-btn {
+            background-color: #FFFFFF;
+            color: var(--primary-color) !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cv-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Hero Section Extras */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .hero-btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
     </style>
 </head>
 <body>
-    <div class="custom-cursor"></div>
     <div class="scroll-progress-bar"></div>
     <div class="scroll-arrow">
         <i class="fas fa-arrow-down"></i>
@@ -150,23 +241,36 @@
     <button id="back-to-top" title="Go to top">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <div class="bubbles">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
- 
 
     <header>
         <h1><i class="fas fa-heart-pulse"></i> VINOJANI GAJENDRAN</h1>
         <p class="tagline">Aspiring Biomedical Technologist</p>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">22</span>
+                <span class="stat-label">Years Old</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2nd</span>
+                <span class="stat-label">Year Student</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Tech Skills</span>
+            </div>
+        </div>
+
+        <div class="hero-buttons">
+            <a href="#contact" class="hero-btn btn-primary">Get In Touch</a>
+            <a href="#about" class="hero-btn btn-outline">Learn More</a>
+        </div>
     </header>
 
     <nav>
+        <p>
+            <a class="cv-btn" href="G.VINOJANI%20CV%20.pdf" download title="Download CV">Download CV <i class="fas fa-download"></i></a>
+        </p>
         <ul>
             <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
             <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
@@ -183,8 +287,7 @@
     <main>
         <section id="about" class="fade-in">
             <div class="about-container">
-                <!-- TODO: Move your image file to the project folder and update the src below -->
-                <img src="C:\Users\DELL\Downloads\pic.jpeg" alt="A picture of Vinojani Gajendran" class="profile-img slide-in-left">
+                <img src="images/profile.jpg" alt="Vinojani Gajendran" class="profile-img slide-in-left">
                 <div class="about-text slide-in-right">
                     <h2>About Me</h2>
                     <p>I am a dedicated <strong>Biomedical Technology student</strong> with a passion for bridging the gap between healthcare and engineering. My goal is to improve patient outcomes through reliable technology and innovation. When I'm not calibrating equipment or coding, you can find me <strong>hiking in the hills of Hatton</strong> or exploring the latest advancements in medical AI.</p>
@@ -273,13 +376,23 @@
                 </div>
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
-                    <p>My soft skills include communication, teamwork, time management, adaptability, and a positive attitude. I am also proficient in problem-solving, emotional intelligence, leadership, creativity, active listening, and critical thinking. These abilities help me build strong relationships, handle challenges effectively, and maintain professionalism.</p>
+                    <ul class="soft-skills-list">
+                        <li>Communication</li>
+                        <li>Teamwork</li>
+                        <li>Problem-Solving</li>
+                        <li>Time Management</li>
+                        <li>Adaptability</li>
+                        <li>Leadership</li>
+                        <li>Critical Thinking</li>
+                        <li>Emotional Intelligence</li>
+                        <li>Active Listening</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="testimonials" class="fade-in">
-            <h2>Social Proof</h2>
+            <h2>Testimonials</h2>
             <div class="testimonial-container">
                 <div class="testimonial-card">
                     <p>"Vinojani has an exceptional ability to troubleshoot complex biomedical equipment while maintaining a calm demeanor under pressure."</p>
@@ -339,10 +452,6 @@
         const slideRightElements = document.querySelectorAll('.slide-in-right');
         slideRightElements.forEach((el) => observers.observe(el));
         // AOS.init(); // Removed because the AOS library is not included
-        document.addEventListener('mousemove', function(e) {
-            const cursor = document.querySelector('.custom-cursor');
-            cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
-        });
 
         // Scroll Progress Bar Logic
         window.addEventListener('scroll', () => {
@@ -393,15 +502,6 @@
                 toggleIcon.classList.replace('fa-sun', 'fa-moon');
             }
         });
-
-        // document.querySelectorAll('a').forEach(link => {
-        //     link.addEventListener('mouseover', () => {
-        //         document.querySelector('.custom-cursor').classList.add('cursor-grow');
-        //     });
-        //     link.addEventListener('mouseleave', () => {
-        //         document.querySelector('.custom-cursor').classList.remove('cursor-grow');
-        //     });
-        // });
 
     </script>
 </body>
