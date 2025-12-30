@@ -231,6 +231,41 @@
             background-color: var(--primary-color);
             color: var(--light-text);
         }
+
+        /* Skill Progress Bar Styles */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .skill-bars {
+            width: 100%;
+        }
+        .skill-bar-item {
+            margin-bottom: 15px;
+        }
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .progress-line {
+            height: 8px;
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        [data-theme="dark"] .progress-line {
+            background: #333;
+        }
+        .progress-line span {
+            display: block;
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -364,13 +399,76 @@
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Technical Skills</h3>
-                    <ul>
-                        <li><i class="fa-solid fa-microchip"></i> <strong>Biomedical Devices:</strong> Advanced</li>
-                        <li><i class="fa-solid fa-code"></i> <strong>HTML and CSS:</strong> Advanced</li>
-                        <li><i class="fa-brands fa-php"></i> <strong>PHP:</strong> Basic</li>
-                        <li><i class="fa-solid fa-calculator"></i> <strong>Digital Electronics:</strong> Basic</li>
-                        <li><i class="fa-solid fa-robot"></i> <strong>AI Tools:</strong> ChatGPT, Midjourney</li>
-                    </ul>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>HTML/CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 90%"></span></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 85%"></span></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>React</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 80%"></span></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>TypeScript</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 75%"></span></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>Node.js</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 70%"></span></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>Git</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 85%"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>Sinhala</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 100%"></span></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>English</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 85%"></span></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>Tamil</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="progress-line"><span style="width: 100%"></span></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
