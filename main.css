@@ -88,14 +88,14 @@ html {
 .bubbles span {
     position: absolute;
     bottom: -100px;
-    background: rgba(128, 0, 0, 0.6); /* Darker and more visible */
+    background: rgba(128, 0, 0, 0.12); /* Subtle and professional */
     border-radius: 50%;
     display: block;
     animation: bubble-rise 15s infinite ease-in;
     box-shadow: 0 0 10px rgba(128, 0, 0, 0.05);
 }
 
-.bubbles span:nth-child(odd) { background: rgba(165, 42, 42, 0.6); } /* Lighter maroon/brown */
+.bubbles span:nth-child(odd) { background: rgba(165, 42, 42, 0.12); } /* Lighter maroon/brown */
 
 .bubbles span:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 10s; animation-delay: 0s; }
 .bubbles span:nth-child(2) { left: 20%; width: 30px; height: 30px; animation-duration: 7s; animation-delay: 2s; }
@@ -189,6 +189,31 @@ body {
     color: var(--text-color);
     scroll-behavior: smooth;
     position: relative;
+}
+
+/* Professional UI Polish */
+::selection {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Animated Starry Background - I'm adding this directly to the body for simplicity */
