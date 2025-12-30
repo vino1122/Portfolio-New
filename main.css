@@ -88,14 +88,14 @@ html {
 .bubbles span {
     position: absolute;
     bottom: -100px;
-    background: rgba(128, 0, 0, 0.15); /* Increased opacity for visibility */
+    background: rgba(128, 0, 0, 0.6); /* Darker and more visible */
     border-radius: 50%;
     display: block;
     animation: bubble-rise 15s infinite ease-in;
     box-shadow: 0 0 10px rgba(128, 0, 0, 0.05);
 }
 
-.bubbles span:nth-child(odd) { background: rgba(165, 42, 42, 0.15); } /* Lighter maroon/brown */
+.bubbles span:nth-child(odd) { background: rgba(165, 42, 42, 0.6); } /* Lighter maroon/brown */
 
 .bubbles span:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 10s; animation-delay: 0s; }
 .bubbles span:nth-child(2) { left: 20%; width: 30px; height: 30px; animation-duration: 7s; animation-delay: 2s; }
