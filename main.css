@@ -478,9 +478,16 @@ section h3:hover {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit: fill;
+    object-fit: cover; /* Better crop for varied image aspect ratios */
+    max-width: 100%;
     border: 4px solid var(--primary-color);
-    animation: pulse-border 2s infinite;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    animation: pulse-border 2.5s infinite;
+}
+.profile-img:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
 }
 
 /* Skills Section Layout */

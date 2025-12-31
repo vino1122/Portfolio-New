@@ -105,6 +105,30 @@
             font-style: italic;
         }
 
+        /* Reference Card Styles */
+        .reference-card {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+        }
+        [data-theme="dark"] .reference-card {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .reference-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .reference-card p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+        .reference-card i {
+            width: 20px;
+            color: var(--secondary-color);
+            margin-right: 8px;
+        }
+
         /* Icon List Styles */
         #education ul, #focus-areas ul {
             list-style: none;
@@ -304,6 +328,7 @@
         }
 
         /* New Project Visual Styles */
+        .project-visual.software { background-color: var(--primary-color); color: #fff; } /* Standard Maroon */
         .project-visual.arduino { background-color: #00979D; color: #fff; } /* Arduino Teal */
         .project-visual.lab { background-color: #673AB7; color: #fff; } /* Lab Purple */
         
@@ -324,6 +349,94 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+        }
+
+        .project-visual {
+            height: 200px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Layout Helpers (Ensure Desktop works well first) */
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem;
+            margin: 0;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Typography Adjustments */
+            header h1 {
+                font-size: 1.8rem;
+                padding: 0 10px;
+                line-height: 1.3;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            /* Navigation */
+            nav ul {
+                flex-direction: column;
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Layout Adjustments */
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-btn, .cv-btn {
+                width: 80%;
+                text-align: center;
+            }
+
+            section {
+                padding: 20px 15px;
+            }
+
+            /* Grid Adjustments */
+            .skills-container, 
+            .testimonial-container, 
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -389,10 +502,12 @@
     <main>
         <section id="about" class="fade-in">
             <div class="about-container">
-                <img src="images/profile.jpg" alt="Vinojani Gajendran" class="profile-img slide-in-left">
+                <img src="images/image1.jpeg" alt="Vinojani Gajendran" class="profile-img slide-in-left visible" loading="lazy">
                 <div class="about-text slide-in-right">
                     <h2>About Me</h2>
                     <p>I am a <strong>second-year Biomedical student</strong> passionate about healthcare technology and diagnostics. I have hands-on experience with <strong>laboratory tools</strong> and a strong interest in public health and medical research. My goal is to improve patient outcomes through reliable technology and innovation.</p>
+                    <h3 style="margin-top: 1.5rem;">Career Objective</h3>
+                    <p>To become a skilled biomedical technologist dedicated to supporting accurate diagnostics and patient care. My long-term goal is to contribute to medical laboratories or research environments that focus on improving health outcomes through innovation and precision.</p>
                 </div>
             </div>
         </section>
@@ -431,7 +546,9 @@
             <div class="projects-container">
                 <!-- Project 1: Case Study Format -->
                 <div class="project-card">
-                    <img src="https://placehold.co/600x400/800000/FFFFFF?text=Inventory+System" alt="Hospital Inventory System" class="project-img">
+                    <div class="project-visual software" role="img" aria-label="Hospital Inventory System">
+                        <i class="fas fa-warehouse fa-4x" aria-hidden="true"></i>
+                    </div>
                     <div class="project-info">
                         <h3>Hospital Inventory Management</h3>
                         <p><strong>The Challenge:</strong> The local clinic struggled with manual tracking of surgical instruments, leading to a 15% loss rate.</p>
@@ -443,7 +560,9 @@
 
                 <!-- Project 2: Case Study Format -->
                 <div class="project-card">
-                    <img src="https://placehold.co/600x400/800000/FFFFFF?text=Calibration+Log" alt="Automated Calibration Log" class="project-img">
+                    <div class="project-visual software" role="img" aria-label="Automated Calibration Log">
+                        <i class="fas fa-wrench fa-4x" aria-hidden="true"></i>
+                    </div>
                     <div class="project-info">
                         <h3>Automated Calibration Log</h3>
                         <p><strong>The Challenge:</strong> Manual calibration logs for ICU ventilators were prone to human error and difficult to audit.</p>
@@ -610,6 +729,30 @@
             </div>
         </section>
 
+        <section id="references" class="fade-in">
+            <h2>Letters of Recommendation</h2>
+            <div class="testimonial-container">
+                <div class="reference-card">
+                    <h3>Mr. Sivabalan Umaharan</h3>
+                    <p><i class="fas fa-user-tie"></i> Principal, Tea Leaf Centre</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Upcot Road, Maskeliya</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:0719272810" style="color: inherit; text-decoration: none;">071–9272810</a></p>
+                </div>
+                <div class="reference-card">
+                    <h3>Mr. S.V. Udhaya Kumar</h3>
+                    <p><i class="fas fa-chalkboard-teacher"></i> Honcey College – Puliyawaththa</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Moray Upper Division</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:0716515343" style="color: inherit; text-decoration: none;">071–6515343</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:udhayakumarvadamalai@gmail.com" style="color: inherit; text-decoration: none;">udhayakumarvadamalai@gmail.com</a></p>
+                </div>
+                <div class="reference-card">
+                    <h3>Dr. R. Kumaran</h3>
+                    <p><i class="fas fa-flask"></i> Lab Instructor</p>
+                    <p><i class="fas fa-hospital"></i> Nuwara Eliya Base Hospital</p>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="fade-in">
             <h2>Contact Me</h2>
             <p>I'm open to new opportunities and collaborations. Feel free to reach out!</p>
@@ -747,31 +890,36 @@
                 category: "Arduino Project",
                 title: "Heart Rate Monitor",
                 desc: "Measured real-time heart rate using a pulse sensor and Arduino. Displayed data on an LCD. Helped understand basic biomedical signal processing.",
-                image: "https://placehold.co/600x400/00979D/FFFFFF?text=Heart+Rate+Monitor"
+                icon: "fa-heart-pulse",
+                visualClass: "arduino"
             },
             {
                 category: "Arduino Project",
                 title: "Temperature & Humidity Logger",
                 desc: "Used DHT11 sensor with Arduino to log room temperature & humidity. Displayed on serial monitor and stored to SD card.",
-                image: "https://placehold.co/600x400/00979D/FFFFFF?text=Temp+Logger"
+                icon: "fa-temperature-high",
+                visualClass: "arduino"
             },
             {
                 category: "Arduino Project",
                 title: "Smart Hand Sanitizer Dispenser",
                 desc: "Built a contactless dispenser using ultrasonic sensor and servo motor with Arduino. Promoted hygiene through automation.",
-                image: "https://placehold.co/600x400/00979D/FFFFFF?text=Smart+Dispenser"
+                icon: "fa-hand-holding-droplet",
+                visualClass: "arduino"
             },
             {
                 category: "Lab-Based Biomedical",
                 title: "Urine Analysis",
                 desc: "Performed chemical and microscopic examination of urine using reagent strips and microscopy. Gained skills in sample handling and result interpretation.",
-                image: "https://placehold.co/600x400/673AB7/FFFFFF?text=Urine+Analysis"
+                icon: "fa-vial",
+                visualClass: "lab"
             },
             {
                 category: "Lab-Based Biomedical",
                 title: "Blood Group Identification",
                 desc: "Identified ABO and Rh blood groups using agglutination method. Learned practical application in transfusion safety.",
-                image: "https://placehold.co/600x400/673AB7/FFFFFF?text=Blood+Group+ID"
+                icon: "fa-droplet",
+                visualClass: "lab"
             }
         ];
 
@@ -780,7 +928,9 @@
         extraProjects.forEach(project => {
             const projectHTML = `
                 <div class="project-card">
-                    <img src="${project.image}" alt="${project.title}" class="project-img">
+                    <div class="project-visual ${project.visualClass}" role="img" aria-label="${project.title}">
+                        <i class="fas ${project.icon} fa-4x" aria-hidden="true"></i>
+                    </div>
                     <div class="project-info">
                         <span class="project-category-tag">${project.category}</span>
                         <h3>${project.title}</h3>
