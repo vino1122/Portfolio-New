@@ -121,6 +121,8 @@
             background-color: var(--card-bg);
             border: 1px solid var(--primary-color);
             color: var(--text-color);
+            border-radius: 8px;
+            overflow: hidden;
         }
         
         .project-info h3, .skill-category h3 {
@@ -317,6 +319,12 @@
             margin-bottom: 10px;
             font-weight: 600;
         }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -423,10 +431,7 @@
             <div class="projects-container">
                 <!-- Project 1: Case Study Format -->
                 <div class="project-card">
-                        <!-- Project visual (icon) -->
-                        <div class="project-visual inventory" role="img" aria-label="Hospital Inventory System">
-                            <i class="fas fa-warehouse fa-4x" aria-hidden="true"></i>
-                        </div>
+                    <img src="https://placehold.co/600x400/800000/FFFFFF?text=Inventory+System" alt="Hospital Inventory System" class="project-img">
                     <div class="project-info">
                         <h3>Hospital Inventory Management</h3>
                         <p><strong>The Challenge:</strong> The local clinic struggled with manual tracking of surgical instruments, leading to a 15% loss rate.</p>
@@ -438,10 +443,7 @@
 
                 <!-- Project 2: Case Study Format -->
                 <div class="project-card">
-                    <!-- Project visual (icon) -->
-                    <div class="project-visual calibration" role="img" aria-label="Calibration Tool">
-                        <i class="fas fa-wrench fa-4x" aria-hidden="true"></i>
-                    </div>
+                    <img src="https://placehold.co/600x400/800000/FFFFFF?text=Calibration+Log" alt="Automated Calibration Log" class="project-img">
                     <div class="project-info">
                         <h3>Automated Calibration Log</h3>
                         <p><strong>The Challenge:</strong> Manual calibration logs for ICU ventilators were prone to human error and difficult to audit.</p>
@@ -745,36 +747,31 @@
                 category: "Arduino Project",
                 title: "Heart Rate Monitor",
                 desc: "Measured real-time heart rate using a pulse sensor and Arduino. Displayed data on an LCD. Helped understand basic biomedical signal processing.",
-                icon: "fa-heart-pulse",
-                visualClass: "arduino"
+                image: "https://placehold.co/600x400/00979D/FFFFFF?text=Heart+Rate+Monitor"
             },
             {
                 category: "Arduino Project",
                 title: "Temperature & Humidity Logger",
                 desc: "Used DHT11 sensor with Arduino to log room temperature & humidity. Displayed on serial monitor and stored to SD card.",
-                icon: "fa-temperature-high",
-                visualClass: "arduino"
+                image: "https://placehold.co/600x400/00979D/FFFFFF?text=Temp+Logger"
             },
             {
                 category: "Arduino Project",
                 title: "Smart Hand Sanitizer Dispenser",
                 desc: "Built a contactless dispenser using ultrasonic sensor and servo motor with Arduino. Promoted hygiene through automation.",
-                icon: "fa-hand-holding-droplet",
-                visualClass: "arduino"
+                image: "https://placehold.co/600x400/00979D/FFFFFF?text=Smart+Dispenser"
             },
             {
                 category: "Lab-Based Biomedical",
                 title: "Urine Analysis",
                 desc: "Performed chemical and microscopic examination of urine using reagent strips and microscopy. Gained skills in sample handling and result interpretation.",
-                icon: "fa-vial",
-                visualClass: "lab"
+                image: "https://placehold.co/600x400/673AB7/FFFFFF?text=Urine+Analysis"
             },
             {
                 category: "Lab-Based Biomedical",
                 title: "Blood Group Identification",
                 desc: "Identified ABO and Rh blood groups using agglutination method. Learned practical application in transfusion safety.",
-                icon: "fa-droplet",
-                visualClass: "lab"
+                image: "https://placehold.co/600x400/673AB7/FFFFFF?text=Blood+Group+ID"
             }
         ];
 
@@ -783,9 +780,7 @@
         extraProjects.forEach(project => {
             const projectHTML = `
                 <div class="project-card">
-                    <div class="project-visual ${project.visualClass}" role="img" aria-label="${project.title}">
-                        <i class="fas ${project.icon} fa-4x" aria-hidden="true"></i>
-                    </div>
+                    <img src="${project.image}" alt="${project.title}" class="project-img">
                     <div class="project-info">
                         <span class="project-category-tag">${project.category}</span>
                         <h3>${project.title}</h3>
