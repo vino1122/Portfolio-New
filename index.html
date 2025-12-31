@@ -300,6 +300,23 @@
         .contact-item a:hover {
             color: var(--primary-color);
         }
+
+        /* New Project Visual Styles */
+        .project-visual.arduino { background-color: #00979D; color: #fff; } /* Arduino Teal */
+        .project-visual.lab { background-color: #673AB7; color: #fff; } /* Lab Purple */
+        
+        .project-category-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -720,6 +737,63 @@
             } else {
                 toggleIcon.classList.replace('fa-sun', 'fa-moon');
             }
+        });
+
+        // Dynamic Project Rendering (Arduino & Lab Projects)
+        const extraProjects = [
+            {
+                category: "Arduino Project",
+                title: "Heart Rate Monitor",
+                desc: "Measured real-time heart rate using a pulse sensor and Arduino. Displayed data on an LCD. Helped understand basic biomedical signal processing.",
+                icon: "fa-heart-pulse",
+                visualClass: "arduino"
+            },
+            {
+                category: "Arduino Project",
+                title: "Temperature & Humidity Logger",
+                desc: "Used DHT11 sensor with Arduino to log room temperature & humidity. Displayed on serial monitor and stored to SD card.",
+                icon: "fa-temperature-high",
+                visualClass: "arduino"
+            },
+            {
+                category: "Arduino Project",
+                title: "Smart Hand Sanitizer Dispenser",
+                desc: "Built a contactless dispenser using ultrasonic sensor and servo motor with Arduino. Promoted hygiene through automation.",
+                icon: "fa-hand-holding-droplet",
+                visualClass: "arduino"
+            },
+            {
+                category: "Lab-Based Biomedical",
+                title: "Urine Analysis",
+                desc: "Performed chemical and microscopic examination of urine using reagent strips and microscopy. Gained skills in sample handling and result interpretation.",
+                icon: "fa-vial",
+                visualClass: "lab"
+            },
+            {
+                category: "Lab-Based Biomedical",
+                title: "Blood Group Identification",
+                desc: "Identified ABO and Rh blood groups using agglutination method. Learned practical application in transfusion safety.",
+                icon: "fa-droplet",
+                visualClass: "lab"
+            }
+        ];
+
+        const projectsContainer = document.querySelector('.projects-container');
+
+        extraProjects.forEach(project => {
+            const projectHTML = `
+                <div class="project-card">
+                    <div class="project-visual ${project.visualClass}" role="img" aria-label="${project.title}">
+                        <i class="fas ${project.icon} fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">${project.category}</span>
+                        <h3>${project.title}</h3>
+                        <p>${project.desc}</p>
+                    </div>
+                </div>
+            `;
+            projectsContainer.insertAdjacentHTML('beforeend', projectHTML);
         });
 
     </script>
