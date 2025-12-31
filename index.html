@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinojany Gajendran - Portfolio</title>
     <meta name="description" content="Portfolio of Vinojani Gajendran, a Biomedical Technology student specializing in healthcare innovation, inventory management, and medical calibration.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +23,7 @@
             --gradient-2: #FFF8DC;
             --gradient-3: #FAEBD7;
             --shadow-color: rgba(0,0,0,0.05);
+            --anim-opacity: 0.15;
         }
 
         [data-theme="dark"] {
@@ -39,6 +39,7 @@
             --gradient-2: #251018;
             --gradient-3: #1a0505;
             --shadow-color: rgba(0,0,0,0.5);
+            --anim-opacity: 0.3;
         }
 
         html {
@@ -53,6 +54,12 @@
 
         nav {
             background-color: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px var(--shadow-color);
         }
 
         nav a {
@@ -381,8 +388,8 @@
 
         @keyframes floatUp {
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.15; }
-            90% { opacity: 0.15; }
+            10% { opacity: var(--anim-opacity); }
+            90% { opacity: var(--anim-opacity); }
             100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
         }
 
