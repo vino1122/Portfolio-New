@@ -745,6 +745,39 @@
             overflow: hidden;
             transition: max-height 0.5s ease-out, opacity 0.5s ease-out, margin-top 0.3s ease;
         }
+
+        /* Search Bar Styles */
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .search-box input {
+            padding: 8px 35px 8px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: var(--light-text);
+            outline: none;
+            font-size: 0.9rem;
+            width: 150px;
+            transition: all 0.3s ease;
+        }
+        .search-box input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        .search-box input:focus {
+            background: rgba(255,255,255,0.2);
+            border-color: var(--light-text);
+            width: 200px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+        .search-box i {
+            position: absolute;
+            right: 12px;
+            color: rgba(255,255,255,0.7);
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -814,6 +847,12 @@
             <li><a href="#focus-areas"><i class="fas fa-stethoscope"></i> Key Focus Areas</a></li>
             <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search projects...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </li>
             <li>
                 <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
             </li>
