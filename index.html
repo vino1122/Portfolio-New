@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinojany Gajendran - Portfolio</title>
     <meta name="description" content="Portfolio of Vinojani Gajendran, a Biomedical Technology student specializing in healthcare innovation, inventory management, and medical calibration.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -422,6 +423,57 @@
             gap: 1.5rem;
         }
 
+        /* Mobile Responsiveness (Implementing your checklist) */
+        @media (max-width: 768px) {
+            /* Typography Adjustments */
+            header h1 {
+                font-size: 1.8rem;
+                padding: 0 10px;
+                line-height: 1.3;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            /* Simplified Navigation */
+            nav ul {
+                flex-direction: column;
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Simplified Layouts */
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-btn, .cv-btn {
+                width: 80%;
+                text-align: center;
+            }
+
+            /* Grid Stacking for Mobile */
+            .skills-container, 
+            .testimonial-container, 
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -766,7 +818,7 @@
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-facebook"></i>
-                    <a href="https://www.facebook.com/vinojani.gajendran" target="_blank">vinojani gajendran</a>
+                    <a href="https://www.facebook.com/vinojani.gajendran" target="_blank">Gajendran Vinojani</a>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
