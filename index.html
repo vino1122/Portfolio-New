@@ -677,29 +677,23 @@
             <div class="projects-container">
                 <!-- Project 1: Case Study Format -->
                 <div class="project-card">
-                    <div class="project-visual software" role="img" aria-label="Hospital Inventory System">
-                        <i class="fas fa-warehouse fa-4x" aria-hidden="true"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1583912267670-6575ad43263d?q=80&w=800&auto=format&fit=crop" class="project-img" alt="Hospital Inventory System" loading="lazy">
                     <div class="project-info">
                         <h3>Hospital Inventory Management</h3>
                         <p><strong>The Challenge:</strong> The local clinic struggled with manual tracking of surgical instruments, leading to a 15% loss rate.</p>
                         <p><strong>The Solution:</strong> I developed a web-based inventory system using HTML, CSS, and PHP to track equipment usage in real-time.</p>
                         <p><strong>The Results:</strong> Reduced equipment loss by <strong>10%</strong> within the first month of testing.</p>
-                        <!-- View Case Study link removed -->
                     </div>
                 </div>
 
                 <!-- Project 2: Case Study Format -->
                 <div class="project-card">
-                    <div class="project-visual software" role="img" aria-label="Automated Calibration Log">
-                        <i class="fas fa-wrench fa-4x" aria-hidden="true"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a092dd14?q=80&w=800&auto=format&fit=crop" class="project-img" alt="Automated Calibration Log" loading="lazy">
                     <div class="project-info">
                         <h3>Automated Calibration Log</h3>
                         <p><strong>The Challenge:</strong> Manual calibration logs for ICU ventilators were prone to human error and difficult to audit.</p>
                         <p><strong>The Solution:</strong> Designed a digital logging interface that validates input data against standard safety thresholds.</p>
                         <p><strong>The Results:</strong> Improved audit compliance speed by <strong>30%</strong> and eliminated calculation errors.</p>
-                        <!-- View Case Study link removed -->
                     </div>
                 </div>
             </div>
@@ -1031,36 +1025,31 @@
                 category: "Arduino Project",
                 title: "Heart Rate Monitor",
                 desc: "Measured real-time heart rate using a pulse sensor and Arduino. Displayed data on an LCD. Helped understand basic biomedical signal processing.",
-                icon: "fa-heart-pulse",
-                visualClass: "arduino"
+                image: "https://images.unsplash.com/photo-1555664424-778a69022365?q=80&w=800&auto=format&fit=crop"
             },
             {
                 category: "Arduino Project",
                 title: "Temperature & Humidity Logger",
                 desc: "Used DHT11 sensor with Arduino to log room temperature & humidity. Displayed on serial monitor and stored to SD card.",
-                icon: "fa-temperature-high",
-                visualClass: "arduino"
+                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop"
             },
             {
                 category: "Arduino Project",
                 title: "Smart Hand Sanitizer Dispenser",
                 desc: "Built a contactless dispenser using ultrasonic sensor and servo motor with Arduino. Promoted hygiene through automation.",
-                icon: "fa-hand-holding-droplet",
-                visualClass: "arduino"
+                image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?q=80&w=800&auto=format&fit=crop"
             },
             {
                 category: "Lab-Based Biomedical",
                 title: "Urine Analysis",
                 desc: "Performed chemical and microscopic examination of urine using reagent strips and microscopy. Gained skills in sample handling and result interpretation.",
-                icon: "fa-vial",
-                visualClass: "lab"
+                image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=800&auto=format&fit=crop"
             },
             {
                 category: "Lab-Based Biomedical",
                 title: "Blood Group Identification",
                 desc: "Identified ABO and Rh blood groups using agglutination method. Learned practical application in transfusion safety.",
-                icon: "fa-droplet",
-                visualClass: "lab"
+                image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop"
             }
         ];
 
@@ -1069,9 +1058,7 @@
         extraProjects.forEach(project => {
             const projectHTML = `
                 <div class="project-card">
-                    <div class="project-visual ${project.visualClass}" role="img" aria-label="${project.title}">
-                        <i class="fas ${project.icon} fa-4x" aria-hidden="true"></i>
-                    </div>
+                    <img src="${project.image}" class="project-img" alt="${project.title}" loading="lazy">
                     <div class="project-info">
                         <span class="project-category-tag">${project.category}</span>
                         <h3>${project.title}</h3>
