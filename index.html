@@ -434,6 +434,22 @@
             border-radius: 50%;
             border: 5px solid var(--primary-color);
             box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            
+            /* Professional Animation & Transition */
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .profile-img.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(128, 0, 0, 0.3);
+            border-color: var(--secondary-color);
         }
 
         nav ul {
@@ -448,6 +464,11 @@
 
         /* Mobile Responsiveness (Implementing your checklist) */
         @media (max-width: 768px) {
+            /* Prevent horizontal scroll */
+            html, body {
+                overflow-x: hidden;
+            }
+
             /* Adjust Section Padding for Mobile */
             section {
                 padding: 20px 15px;
@@ -463,6 +484,11 @@
             .tagline {
                 font-size: 1rem;
                 padding: 0 10px;
+            }
+
+            /* Navigation Adjustments */
+            nav {
+                position: relative; /* Unstick on mobile to save screen space */
             }
 
             /* Simplified Navigation */
@@ -496,6 +522,10 @@
                 height: 250px;
             }
 
+            .hero-stats {
+                gap: 1rem;
+            }
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -505,6 +535,13 @@
             .hero-btn, .cv-btn {
                 width: 80%;
                 text-align: center;
+            }
+
+            /* Form Responsiveness */
+            .contact-form input, 
+            .contact-form textarea {
+                width: 100%;
+                box-sizing: border-box;
             }
 
             /* Grid Stacking for Mobile */
@@ -581,7 +618,7 @@
     <main>
         <section id="about" class="fade-in">
             <div class="about-container">
-                <img src="images/image1.jpeg" alt="Vinojani Gajendran" class="profile-img slide-in-left visible" loading="lazy">
+                <img src="images/image1.jpeg" alt="Vinojani Gajendran" class="profile-img fade-in" loading="lazy">
                 <div class="about-text slide-in-right">
                     <h2>About Me</h2>
                     <p>I am a <strong>second-year Biomedical student</strong> passionate about healthcare technology and diagnostics. I have hands-on experience with <strong>laboratory tools</strong> and a strong interest in public health and medical research. My goal is to improve patient outcomes through reliable technology and innovation.</p>
