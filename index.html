@@ -466,6 +466,29 @@
             gap: 1.5rem;
         }
 
+        /* Project Filter Styles */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--light-text);
+        }
+
         /* Mobile Responsiveness (Implementing your checklist) */
         @media (max-width: 768px) {
             /* Prevent horizontal scroll */
@@ -674,6 +697,12 @@
 
         <section id="projects" class="fade-in">
             <h2>Featured Projects</h2>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="software">Software</button>
+                <button class="filter-btn" data-filter="arduino">Arduino</button>
+                <button class="filter-btn" data-filter="lab">Biomedical Lab</button>
+            </div>
             <div class="projects-container">
                 <!-- Project 1: Case Study Format -->
                 <div class="project-card">
@@ -1012,77 +1041,6 @@
         <p style="font-size: 0.9rem; margin-top: 5px;">Built with passion for biomedical innovation</p>
     </footer>
 
-    <script>
-        const observers = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        });
-
-        const fadeElements = document.querySelectorAll('.fade-in');
-        fadeElements.forEach((el) => observers.observe(el));
-
-        const slideLeftElements = document.querySelectorAll('.slide-in-left');
-        slideLeftElements.forEach((el) => observers.observe(el));
-
-        const slideRightElements = document.querySelectorAll('.slide-in-right');
-        slideRightElements.forEach((el) => observers.observe(el));
-        // AOS.init(); // Removed because the AOS library is not included
-
-        // Scroll Progress Bar Logic
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.querySelector('.scroll-progress-bar').style.width = scrolled + "%";
-        });
-
-        // Back to Top Button Logic
-        const backToTopButton = document.getElementById("back-to-top");
-
-        window.addEventListener('scroll', () => {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopButton.classList.add("show");
-            } else {
-                backToTopButton.classList.remove("show");
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Theme Toggle Logic
-        const toggleBtn = document.getElementById('theme-toggle');
-        const toggleIcon = toggleBtn.querySelector('i');
-        const htmlElement = document.documentElement;
-
-        // Check for saved user preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            htmlElement.setAttribute('data-theme', savedTheme);
-            if (savedTheme === 'dark') toggleIcon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            // Toggle Icon
-            if (newTheme === 'dark') {
-                toggleIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                toggleIcon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
