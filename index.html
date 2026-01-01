@@ -677,23 +677,89 @@
             <div class="projects-container">
                 <!-- Project 1: Case Study Format -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1583912267670-6575ad43263d?q=80&w=800&auto=format&fit=crop" class="project-img" alt="Hospital Inventory System" loading="lazy">
+                    <div class="project-visual software">
+                        <i class="fas fa-laptop-medical fa-3x"></i>
+                    </div>
                     <div class="project-info">
+                        <span class="project-category-tag">Software Development</span>
                         <h3>Hospital Inventory Management</h3>
-                        <p><strong>The Challenge:</strong> The local clinic struggled with manual tracking of surgical instruments, leading to a 15% loss rate.</p>
-                        <p><strong>The Solution:</strong> I developed a web-based inventory system using HTML, CSS, and PHP to track equipment usage in real-time.</p>
-                        <p><strong>The Results:</strong> Reduced equipment loss by <strong>10%</strong> within the first month of testing.</p>
+                        <p><i class="fas fa-exclamation-triangle" style="color: var(--primary-color);"></i> <strong>The Challenge:</strong> The local clinic struggled with manual tracking of surgical instruments, leading to a 15% loss rate.</p>
+                        <p><i class="fas fa-lightbulb" style="color: var(--primary-color);"></i> <strong>The Solution:</strong> I developed a web-based inventory system using HTML, CSS, and PHP to track equipment usage in real-time.</p>
+                        <p><i class="fas fa-chart-line" style="color: var(--primary-color);"></i> <strong>The Results:</strong> Reduced equipment loss by <strong>10%</strong> within the first month of testing.</p>
                     </div>
                 </div>
 
                 <!-- Project 2: Case Study Format -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1516549655169-df83a092dd14?q=80&w=800&auto=format&fit=crop" class="project-img" alt="Automated Calibration Log" loading="lazy">
+                    <div class="project-visual software">
+                        <i class="fas fa-clipboard-check fa-3x"></i>
+                    </div>
                     <div class="project-info">
+                        <span class="project-category-tag">Software Development</span>
                         <h3>Automated Calibration Log</h3>
-                        <p><strong>The Challenge:</strong> Manual calibration logs for ICU ventilators were prone to human error and difficult to audit.</p>
-                        <p><strong>The Solution:</strong> Designed a digital logging interface that validates input data against standard safety thresholds.</p>
-                        <p><strong>The Results:</strong> Improved audit compliance speed by <strong>30%</strong> and eliminated calculation errors.</p>
+                        <p><i class="fas fa-exclamation-triangle" style="color: var(--primary-color);"></i> <strong>The Challenge:</strong> Manual calibration logs for ICU ventilators were prone to human error and difficult to audit.</p>
+                        <p><i class="fas fa-lightbulb" style="color: var(--primary-color);"></i> <strong>The Solution:</strong> Designed a digital logging interface that validates input data against standard safety thresholds.</p>
+                        <p><i class="fas fa-chart-line" style="color: var(--primary-color);"></i> <strong>The Results:</strong> Improved audit compliance speed by <strong>30%</strong> and eliminated calculation errors.</p>
+                    </div>
+                </div>
+
+                <!-- Arduino Project 1 -->
+                <div class="project-card">
+                    <div class="project-visual arduino">
+                        <i class="fas fa-heart-pulse fa-3x"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">Arduino Project</span>
+                        <h3>Heart Rate Monitor</h3>
+                        <p>Measured real-time heart rate using a pulse sensor and Arduino. Displayed data on an LCD. Helped understand basic biomedical signal processing.</p>
+                    </div>
+                </div>
+
+                <!-- Arduino Project 2 -->
+                <div class="project-card">
+                    <div class="project-visual arduino">
+                        <i class="fas fa-temperature-high fa-3x"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">Arduino Project</span>
+                        <h3>Temperature & Humidity Logger</h3>
+                        <p>Used DHT11 sensor with Arduino to log room temperature & humidity. Displayed on serial monitor and stored to SD card.</p>
+                    </div>
+                </div>
+
+                <!-- Arduino Project 3 -->
+                <div class="project-card">
+                    <div class="project-visual arduino">
+                        <i class="fas fa-pump-medical fa-3x"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">Arduino Project</span>
+                        <h3>Smart Hand Sanitizer Dispenser</h3>
+                        <p>Built a contactless dispenser using ultrasonic sensor and servo motor with Arduino. Promoted hygiene through automation.</p>
+                    </div>
+                </div>
+
+                <!-- Lab Project 1 -->
+                <div class="project-card">
+                    <div class="project-visual lab">
+                        <i class="fas fa-vial fa-3x"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">Lab-Based Biomedical</span>
+                        <h3>Urine Analysis</h3>
+                        <p>Performed chemical and microscopic examination of urine using reagent strips and microscopy. Gained skills in sample handling and result interpretation.</p>
+                    </div>
+                </div>
+
+                <!-- Lab Project 2 -->
+                <div class="project-card">
+                    <div class="project-visual lab">
+                        <i class="fas fa-droplet fa-3x"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">Lab-Based Biomedical</span>
+                        <h3>Blood Group Identification</h3>
+                        <p>Identified ABO and Rh blood groups using agglutination method. Learned practical application in transfusion safety.</p>
                     </div>
                 </div>
             </div>
@@ -822,9 +888,7 @@
                             <div class="progress-line"><span style="width: 100%"></span></div>
                         </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Soft Skills</h3>
+                    <h3 style="margin-top: 1.5rem;">Soft Skills</h3>
                     <ul class="soft-skills-list">
                         <li>Communication</li>
                         <li>Teamwork</li>
@@ -1017,56 +1081,6 @@
             } else {
                 toggleIcon.classList.replace('fa-sun', 'fa-moon');
             }
-        });
-
-        // Dynamic Project Rendering (Arduino & Lab Projects)
-        const extraProjects = [
-            {
-                category: "Arduino Project",
-                title: "Heart Rate Monitor",
-                desc: "Measured real-time heart rate using a pulse sensor and Arduino. Displayed data on an LCD. Helped understand basic biomedical signal processing.",
-                image: "https://images.unsplash.com/photo-1555664424-778a69022365?q=80&w=800&auto=format&fit=crop"
-            },
-            {
-                category: "Arduino Project",
-                title: "Temperature & Humidity Logger",
-                desc: "Used DHT11 sensor with Arduino to log room temperature & humidity. Displayed on serial monitor and stored to SD card.",
-                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop"
-            },
-            {
-                category: "Arduino Project",
-                title: "Smart Hand Sanitizer Dispenser",
-                desc: "Built a contactless dispenser using ultrasonic sensor and servo motor with Arduino. Promoted hygiene through automation.",
-                image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?q=80&w=800&auto=format&fit=crop"
-            },
-            {
-                category: "Lab-Based Biomedical",
-                title: "Urine Analysis",
-                desc: "Performed chemical and microscopic examination of urine using reagent strips and microscopy. Gained skills in sample handling and result interpretation.",
-                image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=800&auto=format&fit=crop"
-            },
-            {
-                category: "Lab-Based Biomedical",
-                title: "Blood Group Identification",
-                desc: "Identified ABO and Rh blood groups using agglutination method. Learned practical application in transfusion safety.",
-                image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop"
-            }
-        ];
-
-        const projectsContainer = document.querySelector('.projects-container');
-
-        extraProjects.forEach(project => {
-            const projectHTML = `
-                <div class="project-card">
-                    <img src="${project.image}" class="project-img" alt="${project.title}" loading="lazy">
-                    <div class="project-info">
-                        <span class="project-category-tag">${project.category}</span>
-                        <h3>${project.title}</h3>
-                        <p>${project.desc}</p>
-                    </div>
-                </div>
-            `;
-            projectsContainer.insertAdjacentHTML('beforeend', projectHTML);
         });
 
     </script>
