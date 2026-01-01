@@ -102,7 +102,7 @@
         /* Testimonial Styles */
         .testimonial-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
         .testimonial-card {
@@ -275,9 +275,17 @@
         /* Skill Progress Bar Styles */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
+        
+        /* Projects Container Grid */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
         .skill-bars {
             width: 100%;
         }
@@ -367,6 +375,12 @@
             align-items: center;
         }
 
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Biomedical Background Animation */
         .bio-background {
             position: fixed;
@@ -413,6 +427,15 @@
             gap: 3rem;
         }
 
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+
         nav ul {
             display: flex;
             justify-content: center;
@@ -425,6 +448,11 @@
 
         /* Mobile Responsiveness (Implementing your checklist) */
         @media (max-width: 768px) {
+            /* Adjust Section Padding for Mobile */
+            section {
+                padding: 20px 15px;
+            }
+
             /* Typography Adjustments */
             header h1 {
                 font-size: 1.8rem;
@@ -449,11 +477,23 @@
                 text-align: center;
             }
 
+            /* Tappable Buttons for Navigation */
+            nav ul li a {
+                display: block;
+                padding: 12px; /* Larger touch target */
+                font-size: 1.1rem; /* Larger font for readability */
+            }
+
             /* Simplified Layouts */
             .about-container {
                 flex-direction: column;
                 text-align: center;
                 gap: 1.5rem;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
             }
 
             .hero-buttons {
@@ -547,6 +587,9 @@
                     <p>I am a <strong>second-year Biomedical student</strong> passionate about healthcare technology and diagnostics. I have hands-on experience with <strong>laboratory tools</strong> and a strong interest in public health and medical research. My goal is to improve patient outcomes through reliable technology and innovation.</p>
                     <h3 style="margin-top: 1.5rem;">Career Objective</h3>
                     <p>To become a skilled biomedical technologist dedicated to supporting accurate diagnostics and patient care. My long-term goal is to contribute to medical laboratories or research environments that focus on improving health outcomes through innovation and precision.</p>
+                    <h3 style="margin-top: 1.5rem;">Personal Statement</h3>
+                    <p><strong>Inspiring Health Through Diagnostics</strong></p>
+                    <p>From a young age, I have been fascinated by how science and technology can improve human health. This passion led me to pursue biomedical science, where I discovered the vital role diagnostics and laboratory work play in patient care. I am particularly interested in how accurate test results and innovative medical technologies can support doctors in early detection and treatment. Through my studies and hands-on experience, I have developed a strong foundation in laboratory techniques, a keen eye for detail, and a deep sense of responsibility toward patient well-being. I am committed to continuous learning and contributing meaningfully to healthcare through ethical and skilled biomedical practice.</p>
                 </div>
             </div>
         </section>
@@ -791,6 +834,7 @@
                 </div>
             </div>
         </section>
+        
 
         <section id="contact" class="fade-in">
             <h2>Contact Me</h2>
@@ -837,6 +881,15 @@
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
+        </section>
+
+        <section id="declaration" class="fade-in">
+            <h2>Declaration</h2>
+            <p>I hereby declare that the information provided in this portfolio is true and correct to the best of my knowledge and belief. I take full responsibility for the accuracy of the details shared and understand that any misrepresentation may lead to disqualification. I am committed to upholding the values of honesty and integrity in my academic and professional journey.</p>
+            <div style="margin-top: 1.5rem;">
+                <p><strong>Signature:</strong> G. Vinojani</p>
+                <p><strong>Date:</strong> 01.01.2026</p>
+            </div>
         </section>
     </main>
 
